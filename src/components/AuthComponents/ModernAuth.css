@@ -1,0 +1,234 @@
+/* Modern, Animated Auth & Dashboard Styles */
+
+/* Keyframes */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Glassmorphism Card */
+.modern-card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  animation: scaleIn 0.8s cubic-bezier(.39,.575,.565,1.000);
+  transition: box-shadow 0.3s;
+}
+.modern-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(31,38,135,0.25);
+}
+
+/* Animated Form Fields */
+.modern-form .form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.7s;
+}
+.modern-form .form-control {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.9);
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.modern-form .form-control:focus {
+  border: 1.5px solid #00b0f1;
+  box-shadow: 0 0 0 2px #00b0f133;
+  background: #fff;
+}
+
+/* Animated Button */
+.modern-form .btn-primary, .modern-form .btn-success {
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,176,241,0.08);
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+.modern-form .btn-primary:hover, .modern-form .btn-success:hover {
+  background: linear-gradient(90deg, #00b0f1 0%, #007bff 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,176,241,0.15);
+}
+
+/* Auth Links */
+.auth-link {
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.auth-link:hover {
+  color: #00b0f1;
+  text-shadow: 0 2px 8px rgba(0,176,241,0.15);
+}
+
+/* Animated Headings */
+.modern-heading {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #222;
+  animation: fadeIn 1.2s;
+  text-shadow: 0 2px 8px rgba(0,176,241,0.08);
+}
+
+/* Modern Navbar */
+.modern-navbar {
+  background: linear-gradient(90deg, #00b0f1 0%, #007bff 100%);
+  box-shadow: 0 2px 12px rgba(0,176,241,0.10);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  animation: fadeInDown 0.7s;
+}
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.modern-navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff !important;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: color 0.2s;
+}
+.modern-navbar .navbar-brand:hover {
+  color: #ffe082 !important;
+}
+.modern-navbar .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.modern-navbar .nav-link:hover, .modern-navbar .nav-link.active {
+  background: rgba(255,255,255,0.15);
+  color: #ffe082 !important;
+}
+
+/* Modal Animation */
+.animated-modal {
+  animation: scaleIn 0.5s;
+}
+
+/* Dashboard Section Animation */
+.dashboard-section {
+  animation: fadeInUp 0.8s;
+} 
+
+.animated-navbar {
+  transition: background 0.4s, box-shadow 0.4s;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+}
+.animated-navbar:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+}
+.animated-link {
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.animated-link:hover, .animated-link:focus {
+  background: rgba(0,176,241,0.12) !important;
+  color: #007bff !important;
+  transform: translateY(-2px) scale(1.04);
+}
+.animated-brand {
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.animated-brand:hover {
+  color: #ffe082 !important;
+  text-shadow: 0 2px 12px rgba(0,176,241,0.18);
+}
+.animated-subbar {
+  animation: fadeInDown 0.7s;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+.fade-in {
+  animation: fadeIn 1s;
+} 
+
+body.dark-mode {
+  background: #181c24 !important;
+  color: #f1f1f1 !important;
+  transition: background 0.4s, color 0.4s;
+}
+.dark-mode .modern-card,
+.dark-mode .modern-form,
+.dark-mode .animated-subbar,
+.dark-mode .navbar,
+.dark-mode .modern-navbar {
+  background: rgba(24,28,36,0.85) !important;
+  color: #f1f1f1 !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+}
+.dark-mode .modern-heading,
+.dark-mode .navbar-brand,
+.dark-mode .auth-link,
+.dark-mode .form-control,
+.dark-mode .btn,
+.dark-mode .nav-link {
+  color: #ffe082 !important;
+  background: none !important;
+  transition: color 0.4s, background 0.4s;
+}
+.dark-mode .form-control {
+  background: #23283a !important;
+  border: 1px solid #333 !important;
+  color: #ffe082 !important;
+}
+.dark-mode .btn-primary, .dark-mode .btn-success {
+  background: linear-gradient(90deg, #23283a 0%, #007bff 100%) !important;
+  color: #ffe082 !important;
+  border: none;
+}
+.dark-mode .btn-primary:hover, .dark-mode .btn-success:hover {
+  background: linear-gradient(90deg, #007bff 0%, #23283a 100%) !important;
+  color: #fff !important;
+}
+.dark-mode .animated-link:hover, .dark-mode .animated-link:focus {
+  background: rgba(255,255,255,0.08) !important;
+  color: #ffe082 !important;
+}
+.dark-mode .modern-navbar {
+  background: linear-gradient(90deg, #23283a 0%, #181c24 100%) !important;
+}
+.dark-mode .subbar {
+  background: rgba(24,28,36,0.85) !important;
+  color: #ffe082 !important;
+}
+.dark-mode .modal-content, .dark-mode .modern-card, .dark-mode .animated-modal {
+  background: #23283a !important;
+  color: #ffe082 !important;
+}
+.dark-mode .form-check-label, .dark-mode .badge, .dark-mode .alert {
+  color: #ffe082 !important;
+}
+.dark-mode .alert-info, .dark-mode .alert-warning {
+  background: #23283a !important;
+  color: #ffe082 !important;
+  border: 1px solid #333;
+} 
+
+.animated-widget {
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.animated-widget:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,176,241,0.18);
+  transform: translateY(-4px) scale(1.04);
+  z-index: 2;
+} 
