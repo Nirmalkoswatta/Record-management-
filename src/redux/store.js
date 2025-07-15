@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { thunk } from "redux-thunk";
 import authReducer from "./reducers/authReducer";
 import fileFolderReducer from "./reducers/fileFolderReducer";
@@ -14,7 +14,9 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  compose(
+    applyMiddleware(thunk)
+  )
 );
 
 export default store;
