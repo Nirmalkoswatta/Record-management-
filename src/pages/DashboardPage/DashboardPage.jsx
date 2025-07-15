@@ -36,15 +36,15 @@ const DashboardPage = () => {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', backgroundImage: `url(${dashboardBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {isCreateFolderModalOpen && (
+      {isCreateFolderModalOpen && (
           <div className="animated-modal">
-            <CreateFolder setISCreatedFolderModalOpen={setISCreatedFolderModalOpen} />
+        <CreateFolder setISCreatedFolderModalOpen={setISCreatedFolderModalOpen} />
           </div>
-        )}
+      )}
         <Navbar className="modern-navbar" />
         <div className="dashboard-section">
-          <SubBar setISCreatedFolderModalOpen={setISCreatedFolderModalOpen} />
-          <HomeComponents />
+      <SubBar setISCreatedFolderModalOpen={setISCreatedFolderModalOpen} />
+      <HomeComponents />
         </div>
       </div>
     </div>

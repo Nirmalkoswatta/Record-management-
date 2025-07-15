@@ -31,7 +31,7 @@ const ShowItems = ({ title, items, type }) => {
               <FontAwesomeIcon icon={faFolder} size="4x" className="mb-3" />
             ) : (
               <FontAwesomeIcon icon={getFileIcon(item)} size="3x" className="mb-3" />
-            )}
+               )}
             <div className="fw-bold mb-2">{item?.name}</div>
             {/* Preview for image/video files */}
             {type === 'file' && item.storageUrl && item.type?.startsWith('image') && (

@@ -7,7 +7,7 @@ export const signInUser = (email, password, setSuccess) => async (dispatch) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         dispatch({ type: SIGN_IN, payload: userCredential.user });
-        setSuccess(true);
+      setSuccess(true);
     } catch (error) {
         toast.error('Invalid email or password. Please try again.');
     }
@@ -18,7 +18,7 @@ export const signUpUser = (name, email, password, setSuccess) => async (dispatch
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(userCredential.user, { displayName: name });
         dispatch({ type: SIGN_IN, payload: userCredential.user });
-        setSuccess(true);
+      setSuccess(true);
     } catch (error) {
         toast.error(error.message);
     }

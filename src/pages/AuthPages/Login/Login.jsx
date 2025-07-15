@@ -6,11 +6,11 @@ import '../../../components/AuthComponents/ModernAuth.css';
 
 const Login = () => {
   const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    padding: '5%',
+    backgroundImage: `url(${backgroundImage})`, 
+    backgroundSize: 'cover', 
+    backgroundPosition: 'center', 
+    minHeight: '100vh', 
+    padding: '5%', 
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -18,7 +18,7 @@ const Login = () => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div style={containerStyle}> 
       <h1 className="modern-heading display-1 my-5 text-center">Login Here</h1>
       <div className="row justify-content-center w-100">
         <div className="col-md-6 modern-card p-4" style={{marginTop: '2rem'}}>
