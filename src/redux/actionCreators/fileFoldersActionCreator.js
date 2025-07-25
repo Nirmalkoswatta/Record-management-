@@ -6,6 +6,8 @@ import {
   getDocs,
   query,
   where,
+  doc,
+  deleteDoc,
 } from "firebase/firestore";
 import { toast } from 'react-toastify';
 
@@ -38,8 +40,9 @@ export const createFolder = (data) => async (dispatch) => {
       query(collection(db, "folders"), where("__name__", "==", docRef.id))
     );
     const folderData = folderSnapshot.docs[0].data();
+    const folderWithId = { ...folderData, id: docRef.id };
 
-    dispatch(addFolder(folderData));
+    dispatch(addFolder(folderWithId));
     toast.success("Folder added successfully");
   } catch (error) {
     console.error("Error adding folder: ", error);
@@ -52,11 +55,22 @@ export const getFolders = (userId) => async (dispatch) => {
     dispatch(setLoading(true));
     const q = query(collection(db, "folders"), where("userId", "==", userId));
     const foldersSnapshot = await getDocs(q);
-    const folderData = foldersSnapshot.docs.map((doc) => doc.data());
+    const folderData = foldersSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     dispatch(addFolders(folderData));
   } catch (error) {
     console.error("Error fetching folders: ", error);
   } finally {
     dispatch(setLoading(false));
+  }
+};
+
+export const deleteFolder = (folderId) => async (dispatch) => {
+  try {
+    await deleteDoc(doc(db, "folders", folderId));
+    dispatch({ type: types.DELETE_FOLDER, payload: folderId });
+    toast.success("Folder deleted successfully");
+  } catch (error) {
+    console.error("Error deleting folder: ", error);
+    toast.error("Failed to delete folder");
   }
 };

@@ -83,14 +83,16 @@ const Navbar = ({ className = '' }) => {
                   <li className="nav-item mx-2">
                     <p className='my-0 mt-2 mx-2'>
                       <span className="text-dark">Welcome DR,</span>
-                      <span className="fw-bold">{user.displayName}</span>
+                      <span style={{ color: '#ffe082', fontWeight: 700 }} className="ms-1">{user.displayName}</span>
                     </p>
                   </li>
                   <li className="nav-item mx-2">
                     <Link className="nav-link btn btn-primary animated-link" to="/">Home</Link>
                   </li>
                   <li className="nav-item mx-2">
-                    <button className="nav-link btn btn-success animated-link" onClick={() => dispatch(signOutUser())}>Logout</button>
+                    <button className="nav-link btn btn-success animated-link" onClick={() => dispatch(signOutUser())} style={{ color: 'red', fontWeight: 600 }}>
+                      Logout
+                    </button>
                   </li>
                 </>
               ) : (
