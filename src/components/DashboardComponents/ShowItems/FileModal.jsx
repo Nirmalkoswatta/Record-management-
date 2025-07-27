@@ -38,8 +38,35 @@ const FileModal = ({ file, onClose }) => {
   return (
     <div className="position-fixed top-0 left-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ background: 'rgba(0,0,0,0.4)', zIndex: 9999, animation: 'fadeIn 0.3s' }}>
       <ToastContainer position="top-center" autoClose={2000} />
-      <div className="modern-card p-4" style={{ minWidth: 350, maxWidth: 600, width: '100%', position: 'relative', animation: 'scaleIn 0.5s' }}>
-        <button className="btn btn-sm btn-danger position-absolute top-0 end-0 m-2" onClick={onClose}>&times;</button>
+      <button
+        className="btn position-fixed"
+        onClick={onClose}
+        style={{
+          top: 'calc(50% - 250px)',
+          right: 'calc(50% - 320px)',
+          position: 'fixed',
+          fontSize: '2.5rem',
+          fontWeight: 'bold',
+          color: '#fff',
+          background: 'rgba(220,53,69,0.98)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 54,
+          height: 54,
+          lineHeight: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+          zIndex: 99999,
+          cursor: 'pointer',
+          transition: 'background 0.2s',
+        }}
+        aria-label="Close"
+      >
+        &times;
+      </button>
+      <div className="modern-card p-4" style={{ minWidth: 350, maxWidth: 600, width: '100%', position: 'relative', animation: 'scaleIn 0.5s', zIndex: 10 }}>
         <h4 className="modern-heading mb-3">{file.name}</h4>
         <div className="mb-3">
           <span className="badge bg-info me-2">{file.type}</span>

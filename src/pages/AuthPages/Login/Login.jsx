@@ -1,47 +1,43 @@
 import React from 'react';
 import LoginForm from '../../../components/AuthComponents/LoginForm';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../../../assets/7620.jpg'; 
+
 import '../../../components/AuthComponents/ModernAuth.css';
-
+import bgImg from '../../../assets/login.jpg';
 const Login = () => {
-  const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`, 
-    backgroundSize: 'cover', 
-    backgroundPosition: 'center', 
-    minHeight: '100vh', 
-    padding: '5%', 
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-    overflow: 'hidden',
-  };
-
   return (
-    <div style={containerStyle}> 
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'rgba(255,255,255,0.25)',
-        zIndex: 0,
-        animation: 'fadeIn 1.2s',
-      }} />
-      <h1 className="modern-heading display-1 my-5 text-center fade-in" style={{zIndex: 1}}>Login Here</h1>
-      <div className="row justify-content-center w-100" style={{zIndex: 1}}>
-        <div className="col-md-6 modern-card p-4 animated-modal" style={{marginTop: '2rem'}}>
+    <div
+      className="d-flex flex-column justify-content-center align-items-center"
+      style={{
+        minHeight: '100vh',
+        width: '100vw',
+        padding: 0,
+        margin: 0,
+        background: `url(${bgImg}) center center / cover no-repeat fixed`,
+      }}
+    >
+      <div className="w-100 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+        <h1 className="modern-heading display-4 mb-4 text-center" style={{ color: '#222', fontWeight: 800 }}>Login to Your Account</h1>
+        <div className="modern-card p-4 w-100" style={{
+          maxWidth: 900,
+          minWidth: 400,
+          margin: '0 auto',
+          border: 'none',
+          background: 'rgba(255,255,255,0.18)',
+          color: '#111',
+          boxShadow: 'none',
+          borderTop: 'none',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)'
+        }}>
           <LoginForm />
-          <Link to="/register" className="d-block text-center mt-3 auth-link fade-in">
-            Not a member? Register
-          </Link>
+          <div className="d-block text-center mt-3" style={{ fontSize: '1.1rem', color: '#111' }}>
+            Not a member?{' '}
+            <Link to="/register" className="auth-link" style={{ fontWeight: 600, fontSize: '1.1rem', color: '#111', textDecoration: 'underline' }}>Register</Link>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default Login;

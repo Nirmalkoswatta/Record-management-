@@ -1,78 +1,92 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavigationComponents from '../../components/HomePageComponents/Navigation';
 import homepageBg from '../../assets/7620.jpg';
-import '../../components/AuthComponents/ModernAuth.css';
-
-// Add bubble animation CSS inline for now
-const bubbleStyles = `
-.bubbles {
-  position: absolute;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  overflow: hidden; z-index: 0;
-}
-.bubble {
-  position: absolute;
-  bottom: -100px;
-  background: rgba(0,176,241,0.15);
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: bubbleUp 12s linear infinite;
-}
-@keyframes bubbleUp {
-  0% { transform: translateY(0) scale(1); opacity: 0.7; }
-  80% { opacity: 0.5; }
-  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
-}
-`;
 
 export const HomePage = () => {
-    // Generate random bubbles
-    const bubbles = Array.from({ length: 18 }).map((_, i) => {
-        const size = Math.random() * 60 + 40;
-        const left = Math.random() * 100;
-        const delay = Math.random() * 8;
-        const duration = 8 + Math.random() * 8;
-        return (
-            <div
-                key={i}
-                className="bubble"
-                style={{
-                    width: size,
-                    height: size,
-                    left: `${left}%`,
-                    animationDelay: `${delay}s`,
-                    animationDuration: `${duration}s`,
-                }}
-            />
-        );
-    });
     return (
         <>
-            <style>{bubbleStyles}</style>
             <NavigationComponents />
             <div
                 style={{
                     backgroundImage: `url(${homepageBg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    minHeight: '91.3vh',
+                    minHeight: '91.3vh', 
                     display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    position: 'relative',
-                    overflow: 'hidden',
+                    flexDirection: 'column', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
                 }}
             >
-                <div className="bubbles">{bubbles}</div>
-                <div className="modern-card animated-modal fade-in d-flex flex-column align-items-center justify-content-center" style={{ minWidth: 400, maxWidth: 600, marginTop: '8rem', padding: '3rem 2rem', boxShadow: '0 8px 32px 0 rgba(31,38,135,0.37)', borderRadius: 24, backdropFilter: 'blur(10px)', zIndex: 2 }}>
-                    <h1 className="modern-heading mb-3" style={{ fontSize: '2.5rem', letterSpacing: 1 }}>Furry Pet Clinic Record Management System</h1>
-                    <p className="fade-in" style={{ fontSize: '1.2rem', color: '#333', marginBottom: 24, fontWeight: 500, textShadow: '0 2px 8px rgba(0,176,241,0.08)' }}>
-                        Securely manage your veterinary records with ease and style.
-                    </p>
-                    <a href="/login" className="btn btn-primary animated-link" style={{ fontWeight: 600, fontSize: '1.1rem', borderRadius: 12, padding: '0.75rem 2rem', boxShadow: '0 2px 8px rgba(0,176,241,0.08)' }}>
-                        Get Started
-                    </a>
+                <div className="my-5 text-center relative" style={{ width: '100%' }}>
+                    <h1 
+                        style={{
+                            fontFamily: 'Zapfino, cursive',
+                            color: 'black',
+                            fontSize: '3rem',
+                            position: 'absolute',
+                            top: '150px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                        }}
+                    >
+                        Clinic Record Management System
+                    </h1>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '320px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 2,
+                      }}
+                    >
+                      <div
+                        className="modern-card shadow-lg"
+                        style={{
+                          padding: '2.5rem 3.5rem',
+                          borderRadius: '32px',
+                          background: 'rgba(255,255,255,0.95)',
+                          boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <Link
+                          to="/dashboard"
+                          className="btn"
+                          style={{
+                            background: 'linear-gradient(90deg, #ff5858 0%, #f857a6 100%)',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '25px',
+                            fontWeight: 700,
+                            padding: '18px 54px',
+                            boxShadow: '0 4px 16px rgba(255,88,88,0.15)',
+                            letterSpacing: '1px',
+                            fontSize: '1.6rem',
+                            transition: 'background 0.2s, box-shadow 0.2s, transform 0.2s',
+                            outline: 'none',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            marginBottom: '0.5rem',
+                          }}
+                          onMouseOver={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                          onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                        >
+                          <i className="fas fa-tachometer-alt"></i> Go to Dashboard
+                        </Link>
+                        <span style={{ color: '#888', fontSize: '1rem', marginTop: 8 }}>Access your records and files</span>
+                      </div>
+                    </div>
+// animation keyframes moved to App.css
                 </div>
             </div>
         </>

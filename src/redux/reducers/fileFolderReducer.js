@@ -27,11 +27,6 @@ const fileFolderReducer = (state = initialState, action) => {
                 isLoading: action.payload,
             };
         case types.CREATE_FILE:
-        case types.DELETE_FOLDER:
-            return {
-                ...state,
-                userFolders: state.userFolders.filter(f => f.id !== action.payload),
-            };
         default:
             return state;
     }

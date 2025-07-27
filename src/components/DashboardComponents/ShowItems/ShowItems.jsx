@@ -1,22 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolder, faFile, faImage, faVideo, faFileAlt, faShareAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFolder, faFile, faImage, faVideo, faFileAlt, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
 import FileModal from './FileModal';
 import ShareModal from './ShareModal';
 import "./ShowItems.css";
-import { useDispatch } from 'react-redux';
-import { deleteFolder } from '../../../redux/actionCreators/fileFoldersActionCreator';
 
 const ShowItems = ({ title, items, type }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [shareItem, setShareItem] = useState(null);
-  const dispatch = useDispatch();
-
-  const handleDeleteFolder = (folderId) => {
-    if (window.confirm('Are you sure you want to delete this folder?')) {
-      dispatch(deleteFolder(folderId));
-    }
-  };
 
   const getFileIcon = (file) => {
     if (file.type?.startsWith('image')) return faImage;
@@ -27,27 +18,17 @@ const ShowItems = ({ title, items, type }) => {
 
   return (
     <div className="w-100">
-      <h4 className="text-center border-bottom">{title}</h4>
+      <h4 className="text-center">{title}</h4>
       <div className="row gap-2 p-4 flex-wrap">
         {items && items.map((item, index) => (
           <div
             key={item.id || index}
-            className="col-md-2 py-3 text-center d-flex flex-column border modern-card position-relative"
-            style={{ cursor: type === 'file' ? 'pointer' : 'default', animation: 'fadeInUp 0.5s' }}
+            className="col-md-2 py-3 text-center d-flex flex-column modern-card position-relative"
+            style={{ cursor: type === 'file' ? 'pointer' : 'default' }}
             onClick={() => type === 'file' ? setSelectedFile(item) : undefined}
           >
             {type === "folder" ? (
-              <>
-                <FontAwesomeIcon icon={faFolder} size="4x" className="mb-3" />
-                <button
-                  className="btn btn-outline-danger btn-sm mt-2 animated-link"
-                  style={{ position: 'absolute', top: 10, left: 10, zIndex: 2 }}
-                  onClick={e => { e.stopPropagation(); handleDeleteFolder(item.id); }}
-                  aria-label="Delete"
-                >
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </button>
-              </>
+              <FontAwesomeIcon icon={faFolder} size="4x" className="mb-3" />
             ) : (
               <FontAwesomeIcon icon={getFileIcon(item)} size="3x" className="mb-3" />
                )}
@@ -60,7 +41,7 @@ const ShowItems = ({ title, items, type }) => {
               <video src={item.storageUrl} controls style={{ width: '100%', maxHeight: 80, borderRadius: 8 }} />
             )}
             <button
-              className="btn btn-outline-info btn-sm mt-2 animated-link"
+              className="btn btn-outline-info btn-sm mt-2"
               style={{ position: 'absolute', top: 10, right: 10, zIndex: 2 }}
               onClick={e => { e.stopPropagation(); setShareItem(item); }}
               aria-label="Share"
