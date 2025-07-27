@@ -10,15 +10,20 @@ import NotificationModal from './NotificationModal';
 
 const Navbar = ({ className = '' }) => {
   const { isAuthenticated, user } = useSelector(state => state.auth);
-  const activities = useSelector(state => state.activity.activities);
+  const activities = useSelector(state => state.activity?.activities || []);
   const dispatch = useDispatch();
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
   const [showProfile, setShowProfile] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [lastSeen, setLastSeen] = useState(() => Number(localStorage.getItem('lastSeenActivity')) || 0);
 
-  // Count new activities since last open
-  const newCount = activities.filter(a => new Date(a.timestamp?.seconds ? a.timestamp.seconds * 1000 : a.timestamp) > lastSeen).length;
+  // Count new activities since last open - with safe array handling
+  const newCount = Array.isArray(activities) 
+    ? activities.filter(a => {
+        const timestamp = a.timestamp?.seconds ? a.timestamp.seconds * 1000 : new Date(a.timestamp).getTime();
+        return timestamp > lastSeen;
+      }).length 
+    : 0;
 
   useEffect(() => {
     if (darkMode) {
@@ -40,7 +45,19 @@ const Navbar = ({ className = '' }) => {
     <nav className={`navbar navbar-expand-lg shadow-sm p-3 modern-navbar animated-navbar ${className}`} style={{ position: 'sticky', top: 0, zIndex: 100, transition: 'background 0.4s, box-shadow 0.4s' }}>
       <div className="container-fluid">
         <div className="navbar-header">
-          <Link className="navbar-brand ms-5 animated-brand" to="/dashboard"> Clinic Records </Link>
+          <Link 
+            className="navbar-brand ms-5 animated-brand" 
+            to="/dashboard"
+            style={{
+              color: 'white',
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              textDecoration: 'none',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+            }}
+          > 
+            Clinic Records Management
+          </Link>
         </div>
         <div className="ms-auto me-5 d-flex align-items-center gap-3">
           <button
@@ -83,14 +100,31 @@ const Navbar = ({ className = '' }) => {
                   <li className="nav-item mx-2">
                     <p className='my-0 mt-2 mx-2'>
                       <span className="text-dark">Welcome DR,</span>
-                      <span className="fw-bold">{user.displayName}</span>
+                      <span style={{ color: '#ffe082', fontWeight: 700 }} className="ms-1">{user.displayName}</span>
                     </p>
                   </li>
                   <li className="nav-item mx-2">
                     <Link className="nav-link btn btn-primary animated-link" to="/">Home</Link>
                   </li>
                   <li className="nav-item mx-2">
-                    <button className="nav-link btn btn-success animated-link" onClick={() => dispatch(signOutUser())}>Logout</button>
+                    <button
+                      className="nav-link btn btn-danger modern-logout-btn"
+                      onClick={() => dispatch(signOutUser())}
+                      style={{
+                        background: 'linear-gradient(90deg, #ff5858 0%, #f857a6 100%)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '25px',
+                        fontWeight: 700,
+                        padding: '8px 28px',
+                        boxShadow: '0 4px 16px rgba(255,88,88,0.15)',
+                        letterSpacing: '1px',
+                        fontSize: '1.1rem',
+                        transition: 'background 0.2s, box-shadow 0.2s',
+                      }}
+                    >
+                      <i className="fas fa-sign-out-alt me-2"></i>Logout
+                    </button>
                   </li>
                 </>
               ) : (

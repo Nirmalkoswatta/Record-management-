@@ -18,13 +18,13 @@ const ShowItems = ({ title, items, type }) => {
 
   return (
     <div className="w-100">
-      <h4 className="text-center border-bottom">{title}</h4>
+      <h4 className="text-center">{title}</h4>
       <div className="row gap-2 p-4 flex-wrap">
         {items && items.map((item, index) => (
           <div
             key={item.id || index}
-            className="col-md-2 py-3 text-center d-flex flex-column border modern-card position-relative"
-            style={{ cursor: type === 'file' ? 'pointer' : 'default', animation: 'fadeInUp 0.5s' }}
+            className="col-md-2 py-3 text-center d-flex flex-column modern-card position-relative"
+            style={{ cursor: type === 'file' ? 'pointer' : 'default' }}
             onClick={() => type === 'file' ? setSelectedFile(item) : undefined}
           >
             {type === "folder" ? (
@@ -41,7 +41,7 @@ const ShowItems = ({ title, items, type }) => {
               <video src={item.storageUrl} controls style={{ width: '100%', maxHeight: 80, borderRadius: 8 }} />
             )}
             <button
-              className="btn btn-outline-info btn-sm mt-2 animated-link"
+              className="btn btn-outline-info btn-sm mt-2"
               style={{ position: 'absolute', top: 10, right: 10, zIndex: 2 }}
               onClick={e => { e.stopPropagation(); setShareItem(item); }}
               aria-label="Share"

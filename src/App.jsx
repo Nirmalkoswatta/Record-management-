@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'; // Correctly import useEffect from 're
 import { Routes, Route } from 'react-router-dom'; // No useEffect in 'react-router-dom'
 import './App.css';
 import { useDispatch } from 'react-redux';
-
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import  HomePage  from "./pages/HomePage/HomePage"; 
 import Register from './pages/AuthPages/Register/Register';
@@ -28,6 +28,24 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard/*" element={<DashboardPage />} />
       </Routes>
+      
+      {/* Global Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        style={{
+          fontSize: '14px',
+          borderRadius: '12px'
+        }}
+      />
     </div>
   );
 };

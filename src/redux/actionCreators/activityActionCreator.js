@@ -36,6 +36,7 @@ export const getActivities = (userId, max = 20) => async (dispatch) => {
     const activities = snap.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
     dispatch(setActivities(activities));
   } catch (error) {
+    console.error('Failed to fetch activity log:', error);
     toast.error('Failed to fetch activity log');
   } finally {
     dispatch(setActivityLoading(false));

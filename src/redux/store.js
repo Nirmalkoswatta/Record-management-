@@ -7,7 +7,7 @@ import activityReducer from "./reducers/activityReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  fileFolder: fileFolderReducer,
+  fileFolders: fileFolderReducer,
   file: fileReducer,
   activity: activityReducer,
 });
