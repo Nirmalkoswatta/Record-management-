@@ -36,7 +36,7 @@ const FileModal = ({ file, onClose }) => {
   };
 
   return (
-    <div className="position-fixed top-0 left-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ background: 'rgba(0,0,0,0.4)', zIndex: 9999, animation: 'fadeIn 0.3s' }}>
+  <div className="position-fixed top-0 left-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ background: 'rgba(0,0,0,0.36)', zIndex: 9999, animation: 'fadeIn 0.3s' }}>
       <ToastContainer position="top-center" autoClose={2000} />
       <button
         className="btn position-fixed"
@@ -48,7 +48,7 @@ const FileModal = ({ file, onClose }) => {
           fontSize: '2.5rem',
           fontWeight: 'bold',
           color: '#fff',
-          background: 'rgba(220,53,69,0.98)',
+          background: 'rgba(220,53,69,0.88)',
           border: 'none',
           borderRadius: '50%',
           width: 54,

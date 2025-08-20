@@ -34,7 +34,7 @@ const DashboardPage = () => {
   }, [isLoading, isLoggedIn, dispatch,userId]);
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', backgroundImage: `url(${dashboardBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <div style={{ position: 'relative', zIndex: 1 }}>
       {isCreateFolderModalOpen && (
           <div className="animated-modal">

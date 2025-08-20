@@ -79,7 +79,7 @@ const CreateFolder = ({ setISCreatedFolderModalOpen }) => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'rgba(0, 0, 0, 0.5)',
+                    background: 'rgba(0, 0, 0, 0.42)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -94,7 +94,7 @@ const CreateFolder = ({ setISCreatedFolderModalOpen }) => {
                     exit={{ scale: 0.9, opacity: 0, y: 20 }}
                     onClick={(e) => e.stopPropagation()}
                     style={{
-                        background: 'rgba(255, 255, 255, 0.1)',
+                        background: 'rgba(255, 255, 255, 0.14)',
                         backdropFilter: 'blur(20px)',
                         borderRadius: '24px',
                         padding: '30px',
@@ -114,7 +114,7 @@ const CreateFolder = ({ setISCreatedFolderModalOpen }) => {
                             position: 'absolute',
                             top: '15px',
                             right: '15px',
-                            background: 'rgba(255, 255, 255, 0.1)',
+                            background: 'rgba(255, 255, 255, 0.14)',
                             border: '1px solid rgba(255, 255, 255, 0.2)',
                             borderRadius: '50%',
                             width: '40px',
@@ -188,7 +188,7 @@ const CreateFolder = ({ setISCreatedFolderModalOpen }) => {
                                     padding: '15px 20px',
                                     borderRadius: '12px',
                                     border: '2px solid rgba(255, 255, 255, 0.1)',
-                                    background: 'rgba(255, 255, 255, 0.1)',
+                                    background: 'rgba(255, 255, 255, 0.14)',
                                     color: 'white',
                                     fontSize: '16px',
                                     outline: 'none',

@@ -7,18 +7,7 @@ export const HomePage = () => {
     return (
         <>
             <NavigationComponents />
-            <div
-                style={{
-                    backgroundImage: `url(${homepageBg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    minHeight: '91.3vh', 
-                    display: 'flex',
-                    flexDirection: 'column', 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
-                }}
-            >
+            <div style={{ minHeight: '91.3vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="my-5 text-center relative" style={{ width: '100%' }}>
                     <h1 
                         style={{
@@ -46,18 +35,7 @@ export const HomePage = () => {
                         zIndex: 2,
                       }}
                     >
-                      <div
-                        className="modern-card shadow-lg"
-                        style={{
-                          padding: '2.5rem 3.5rem',
-                          borderRadius: '32px',
-                          background: 'rgba(255,255,255,0.95)',
-                          boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center'
-                        }}
-                      >
+                      <div className="modern-card shadow-lg" style={{ padding: '2.5rem 3.5rem', borderRadius: '32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Link
                           to="/dashboard"
                           className="btn"
