@@ -210,8 +210,10 @@
 
 /* Modern Navbar */
 .modern-navbar {
-  background: linear-gradient(90deg, #00b0f1 0%, #007bff 100%);
-  box-shadow: 0 2px 12px rgba(0,176,241,0.10);
+  background: rgba(255,255,255,0.08); /* nearly transparent glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: none;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   animation: fadeInDown 0.7s;
@@ -254,8 +256,11 @@
 } 
 
 .animated-navbar {
+  background: rgba(255,255,255,0.08); /* nearly transparent glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: background 0.4s, box-shadow 0.4s;
-  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10);
+  box-shadow: none;
 }
 .animated-navbar:hover {
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);

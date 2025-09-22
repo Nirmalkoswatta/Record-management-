@@ -23,7 +23,7 @@ const NavigationComponents = () => {
                   <li className="nav-item mx-2">
                     <p className='my-0 mt-2 mx-2'>
                       <span style={{ color: 'black', fontWeight: 600 }}>Welcome DR,</span>
-                      <span style={{ color: '#FFD600', fontWeight: 700 }} className="ms-1">{user.displayName}</span>
+                      <span className="ms-1 navbar-username" style={{ fontWeight: 700 }}>{user.displayName}</span>
                     </p>
                   </li>
                   <li className="nav-item mx-2">

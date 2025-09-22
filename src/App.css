@@ -1,3 +1,15 @@
+.navbar .navbar-username, .modern-navbar .navbar-username, .navbar-username {
+  color: #FFD600 !important;
+}
+/* Make all text white globally */
+body, html, #root {
+  color: #fff !important;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, label, li, a, .form-label, .nav-link, .navbar-brand {
+  color: #fff !important;
+}
 @keyframes scaleFadeIn {
   0% { opacity: 0; transform: scale(0.85); }
   100% { opacity: 1; transform: scale(1); }

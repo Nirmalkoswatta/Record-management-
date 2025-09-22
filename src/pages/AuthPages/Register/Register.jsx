@@ -11,9 +11,9 @@ const Register = () => {
         <h1 className="modern-heading display-4 mb-4 text-center" style={{ color: '#222', fontWeight: 800 }}>Create Your Account</h1>
   <div className="modern-card p-4 w-100" style={{ maxWidth: 900, minWidth: 300, margin: '0 auto', border: 'none', color: '#111', boxShadow: 'none', borderTop: 'none' }}>
           <RegisterForm />
-          <div className="d-block text-center mt-3" style={{ fontSize: '1.1rem', color: '#111' }}>
+          <div className="d-block text-center mt-3" style={{ fontSize: '1.1rem', color: '#fff' }}>
             Already a member?{' '}
-            <Link to="/login" className="auth-link" style={{ fontWeight: 600, fontSize: '1.1rem', color: '#111', textDecoration: 'underline' }}>Login</Link>
+            <Link to="/login" className="auth-link" style={{ fontWeight: 600, fontSize: '1.1rem', textDecoration: 'underline' }}>Login</Link>
           </div>
         </div>
       </div>

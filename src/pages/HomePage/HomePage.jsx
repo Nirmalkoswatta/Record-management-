@@ -9,17 +9,17 @@ export const HomePage = () => {
             <NavigationComponents />
             <div style={{ minHeight: '91.3vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="my-5 text-center relative" style={{ width: '100%' }}>
-                    <h1 
-                        style={{
-                            fontFamily: 'Zapfino, cursive',
-                            color: 'black',
-                            fontSize: '3rem',
-                            position: 'absolute',
-                            top: '150px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                        }}
-                    >
+          <h1 
+            style={{
+              fontFamily: 'Zapfino, cursive',
+              color: '#fff',
+              fontSize: '3rem',
+              position: 'absolute',
+              top: '150px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}
+          >
                         Clinic Record Management System
                     </h1>
                     <div
@@ -61,7 +61,7 @@ export const HomePage = () => {
                         >
                           <i className="fas fa-tachometer-alt"></i> Go to Dashboard
                         </Link>
-                        <span style={{ color: '#888', fontSize: '1rem', marginTop: 8 }}>Access your records and files</span>
+                        <span style={{ color: '#fff', fontSize: '1rem', marginTop: 8 }}>Access your records and files</span>
                       </div>
                     </div>
 // animation keyframes moved to App.css
